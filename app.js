@@ -21,7 +21,7 @@ dbConnection();
 
 
 const imageRoutes=require("./routes/imageRoutes");
-app.use = ("/gallary",imageRoutes);
+app.use ("/gallary",imageRoutes);
 
 
 

@@ -13,9 +13,9 @@ const {
 
 router.post("/create", uploadImageProduct ,createImage);
 router.get("/allImage",getAllImage);
-router.put("/imge",getImageById);
-router.get("/update",updateImage);
-router.delete("/delete",deletImage);
+router.get("/imge/:id",getImageById);
+router.put("/update/:id",updateImage);
+router.delete("/delete/:id",deletImage);
 
 
 

@@ -26,7 +26,7 @@ const getAllImage = async (req,res) =>{
 
 
     try {
-        const images = await Image.fine();
+        const images = await Image.find();
         res.status(200).json({msg:"done get image"})
     
     } catch (error) {
@@ -44,23 +44,24 @@ const getImageById = async (req,res) =>{
         return res.status(400).json({msg:"Image not found"})
       }
     
-    
+   
+res.status(200).json(image);
     } catch (error) {
         res.status(500).json({msg:"server error"});
         
     };
 };
 
-const updateImage = async (req,res) =>{
+const updateImage = async (req, res) => {
 
 
     try {
-        const image = await Image.findByIdAndUpdate(req.params.id);
-    
-    
+        const image = await Image.findByIdAndUpdate((req.params.id), { new: true });
+
+        res.status(200).json({ msg: "Image updated", image });
     } catch (error) {
-        res.status(500).json({msg:"server error"});
-        
+        res.status(500).json({ msg: "server error" });
+
     };
 };
 
@@ -69,7 +70,7 @@ const deletImage = async (req,res) =>{
 
     try {
       const image = await Image.findByIdAndDelete(req.params.id);
-
+res.status(200).json({msg:"done delete"});
     
     
     } catch (error) {
